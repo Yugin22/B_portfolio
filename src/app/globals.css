@@ -1,26 +1,132 @@
 @import "tailwindcss";
 
+@theme {
+  --color-neon-cyan: #00f3ff;
+  --color-neon-purple: #bc13fe;
+  --color-neon-lime: #a2ff00;
+  --font-sans: var(--font-outfit), ui-sans-serif, system-ui;
+  --font-mono: var(--font-space), ui-monospace, SFMono-Regular;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --background: #010101;
+  --foreground: #ffffff;
+  /* Ultimate 3D Claymorphism Tokens */
+  --clay-bg: rgba(255, 255, 255, 0.03);
+  --clay-shadow-inner: 
+    inset 8px 8px 16px rgba(255, 255, 255, 0.03), 
+    inset -8px -8px 16px rgba(0, 0, 0, 0.6),
+    inset 0 0 40px rgba(0, 243, 255, 0.02);
+  --clay-shadow-outer: 
+    30px 30px 60px rgba(0, 0, 0, 0.9),
+    -5px -5px 20px rgba(255, 255, 255, 0.01);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-outfit), sans-serif;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+[font-mono] {
+  font-family: var(--font-space), monospace;
+}
+
+/* 3D Grid with Perspective */
+.grid-bg-3d {
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 80px 80px;
+  transform: perspective(1000px) rotateX(60deg) translateY(-200px);
+  transform-origin: top;
+  height: 200%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 0;
+  opacity: 0.4;
+  mask-image: linear-gradient(to bottom, black, transparent);
+}
+
+/* Claymorphism 2.0 */
+.clay-card {
+  background: var(--clay-bg);
+  box-shadow: var(--clay-shadow-inner), var(--clay-shadow-outer);
+  border-radius: 64px;
+  border: 1px solid rgba(255, 255, 255, 0.03);
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  backdrop-filter: blur(10px);
+}
+
+.clay-card:hover {
+  transform: translateY(-15px) scale(1.03);
+  box-shadow: 
+    inset 12px 12px 24px rgba(255, 255, 255, 0.04), 
+    inset -12px -12px 24px rgba(0, 0, 0, 0.7), 
+    40px 40px 80px rgba(0, 0, 0, 1),
+    0 0 30px rgba(0, 243, 255, 0.05);
+}
+
+.clay-btn {
+  @apply relative px-10 py-5 font-black uppercase tracking-[0.2em] text-[10px] rounded-full transition-all duration-700;
+  background: var(--clay-bg);
+  box-shadow: 
+    inset 4px 4px 8px rgba(255, 255, 255, 0.05), 
+    inset -4px -4px 8px rgba(0, 0, 0, 0.6), 
+    10px 10px 20px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.clay-btn:hover {
+  box-shadow: 
+    inset 6px 6px 12px rgba(255, 255, 255, 0.08), 
+    inset -6px -6px 12px rgba(0, 0, 0, 0.8), 
+    15px 15px 30px rgba(0, 0, 0, 0.8),
+    0 0 20px rgba(255, 255, 255, 0.05);
+  transform: translateY(-4px) scale(1.05);
+}
+
+.text-gradient-3d {
+  background: linear-gradient(135deg, #fff 0%, #fff 50%, rgba(255, 255, 255, 0.1) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.5));
+}
+
+/* Glassy Blur Utility */
+.glass-blur {
+  background: rgba(255, 255, 255, 0.01);
+  backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px);
+}
+
+/* Animations */
+@keyframes float {
+  0% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(2deg); }
+  100% { transform: translateY(0px) rotate(0deg); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Neural Pulse Animation */
+@keyframes neural-pulse {
+  0% { box-shadow: 0 0 0 0 rgba(0, 243, 255, 0.2); }
+  70% { box-shadow: 0 0 0 20px rgba(0, 243, 255, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(0, 243, 255, 0); }
+}
+
+.pulse-node {
+  animation: neural-pulse 2s infinite;
+}
+
+/* Section Breathing */
+section {
+  perspective: 2000px;
 }

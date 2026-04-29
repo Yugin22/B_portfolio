@@ -1,65 +1,100 @@
-import Image from "next/image";
+import Hero from '@/components/Hero';
+import ProjectCard from '@/components/ProjectCard';
+import ContactSection from '@/components/ContactSection';
+import TechMarquee from '@/components/TechMarquee';
+import BentoAbout from '@/components/BentoAbout';
+import { Reveal } from '@/components/Reveal';
+import { createServerSideClient } from '@/lib/supabase';
 
-export default function Home() {
+const FALLBACK_PROJECTS = [
+  {
+    id: '1',
+    title: 'SECURE-TICKET V2',
+    description: 'Professional ticketing system for enterprise support teams. Features real-time conversation sync, role-based access control (RBAC), and automated SLA tracking.',
+    image_url: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=1000&auto=format&fit=crop',
+    live_url: '#',
+    repo_url: '#',
+    tags: ['NEXT.JS', 'SUPABASE', 'REALTIME', 'RBAC']
+  },
+  {
+    id: '2',
+    title: 'ANALYTICS-NODE',
+    description: 'High-performance dashboard for monitoring digital ecosystems. Reduced load times by 40% using optimized server components and edge-caching.',
+    image_url: 'https://images.unsplash.com/photo-1614850523296-d8c1af93d400?q=80&w=1000&auto=format&fit=crop',
+    live_url: '#',
+    repo_url: '#',
+    tags: ['REACT', 'POSTGRES', 'RECHARTS']
+  },
+  {
+    id: '3',
+    title: 'SAAS-FLOW PRO',
+    description: 'Automated workflow engine for SaaS startups. Includes clean dashboard UI, secure payment integration, and dynamic user onboarding.',
+    image_url: 'https://images.unsplash.com/photo-1633356122544-f134324a6cee?q=80&w=1000&auto=format&fit=crop',
+    live_url: '#',
+    repo_url: '#',
+    tags: ['TAILWIND', 'NEXTJS', 'STRIPE']
+  }
+];
+
+export default async function Home() {
+  const supabase = await createServerSideClient();
+  const { data: projects } = await supabase
+    .from('projects')
+    .select('*')
+    .order('created_at', { ascending: false });
+
+  const displayProjects = projects && projects.length > 0 ? projects : FALLBACK_PROJECTS;
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <main className="min-h-screen bg-[#010101]">
+      <Hero />
+
+      <section id="projects" className="py-60 relative">
+        <div className="container mx-auto px-6">
+          <Reveal>
+            <div className="grid lg:grid-cols-12 gap-12 mb-32 items-end">
+              <div className="lg:col-span-8">
+                <div className="flex items-center gap-4 text-neon-cyan font-mono text-[11px] tracking-[0.4em] uppercase mb-8">
+                  Selected_Works
+                </div>
+                <h2 className="text-8xl md:text-[12rem] font-black tracking-tighter uppercase leading-[0.8] mb-0">
+                  <span className="text-white block">PROJECT</span>
+                  <span className="text-zinc-900 block">ARCHIVE</span>
+                </h2>
+              </div>
+              <div className="lg:col-span-4 pb-6">
+                <p className="max-w-sm text-zinc-500 text-xl md:text-2xl font-medium leading-tight text-left lg:text-right ml-auto">
+                  A collection of high-fidelity SaaS projects built for scalability and performance.
+                </p>
+              </div>
+            </div>
+          </Reveal>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            {displayProjects.map((project) => (
+              <Reveal key={project.id}>
+                <ProjectCard project={project} />
+              </Reveal>
+            ))}
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+      </section>
+
+      <TechMarquee />
+
+      <Reveal>
+        <BentoAbout />
+      </Reveal>
+
+      <Reveal>
+        <ContactSection />
+      </Reveal>
+
+      <footer className="py-20 border-t border-white/[0.05] text-center">
+        <p className="text-zinc-800 font-mono text-xs tracking-[0.5em] uppercase">
+          Eugene L. Bulabog // 2026 // ALL_RIGHTS_RESERVED
+        </p>
+      </footer>
+    </main>
   );
 }
