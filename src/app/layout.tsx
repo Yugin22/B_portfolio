@@ -5,6 +5,7 @@ import CommandPalette from "@/components/CommandPalette";
 import ScrollProgress from "@/components/ScrollProgress";
 import SmoothScroll from "@/components/SmoothScroll";
 import GlobalSpotlight from "@/components/GlobalSpotlight";
+import { Metadata } from "next";
 
 const outfit = Outfit({
   subsets: ["latin"],
