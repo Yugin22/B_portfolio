@@ -42,79 +42,79 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contact" className="py-60 relative overflow-hidden bg-[#010101]">
+    <section id="contact" className="py-24 md:py-60 relative overflow-hidden bg-[#010101]">
       <div className="container mx-auto px-6">
         <div className="max-w-6xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-24 items-center">
+          <div className="grid lg:grid-cols-2 gap-16 md:gap-24 items-center">
             
             <div>
-              <h2 className="text-7xl md:text-9xl font-black mb-12 uppercase tracking-tighter leading-[0.8]">
+              <h2 className="text-5xl sm:text-7xl md:text-9xl font-black mb-8 md:mb-12 uppercase tracking-tighter leading-[0.8]">
                 LET&apos;S <br />
                 <span className="text-gradient">CONNECT.</span>
               </h2>
               
-              <p className="text-zinc-500 text-xl mb-16 max-w-md leading-relaxed font-medium">
+              <p className="text-zinc-500 text-lg md:text-xl mb-12 md:mb-16 max-w-md leading-relaxed font-medium">
                 Designing the future requires collaboration. My terminal is open for 
                 SaaS deployments and elite full-stack roles.
               </p>
 
               <div className="space-y-8">
-                <a href="mailto:hello@bulabog.dev" className="inline-block text-3xl font-black hover:text-neon-cyan transition-colors tracking-tighter">
+                <a href="mailto:hello@bulabog.dev" className="inline-block text-xl sm:text-2xl md:text-3xl font-black hover:text-neon-cyan transition-colors tracking-tighter break-all">
                   hello@bulabog.dev
                 </a>
 
-                <div className="flex gap-6">
-                  <a href="https://github.com" target="_blank" className="p-6 clay-card !rounded-[2rem] hover:border-white/20">
-                    <Github className="w-6 h-6 text-zinc-500" />
+                <div className="flex gap-4 md:gap-6">
+                  <a href="https://github.com" target="_blank" className="p-4 md:p-6 clay-card !rounded-[1.5rem] md:!rounded-[2rem] hover:border-white/20">
+                    <Github className="w-5 h-5 md:w-6 md:h-6 text-zinc-500" />
                   </a>
-                  <a href="https://linkedin.com" target="_blank" className="p-6 clay-card !rounded-[2rem] hover:border-white/20">
-                    <Linkedin className="w-6 h-6 text-zinc-500" />
+                  <a href="https://linkedin.com" target="_blank" className="p-4 md:p-6 clay-card !rounded-[1.5rem] md:!rounded-[2rem] hover:border-white/20">
+                    <Linkedin className="w-5 h-5 md:w-6 md:h-6 text-zinc-500" />
                   </a>
                 </div>
               </div>
             </div>
 
-            <div className="clay-card p-12 md:p-20 relative overflow-hidden">
-              <form onSubmit={handleSubmit} className="space-y-10">
-                <div className="space-y-8">
+            <div className="clay-card p-8 md:p-20 relative overflow-hidden mt-12 lg:mt-0">
+              <form onSubmit={handleSubmit} className="space-y-8 md:space-y-10">
+                <div className="space-y-6 md:space-y-8">
                   <div>
-                    <label className="block text-[10px] font-black text-zinc-600 uppercase mb-4 tracking-[0.3em]">Full Name</label>
+                    <label className="block text-[10px] font-black text-zinc-600 uppercase mb-3 md:mb-4 tracking-[0.3em]">Full Name</label>
                     <input
                       name="name"
                       type="text"
                       required
-                      className="w-full bg-white/[0.01] border border-white/5 rounded-2xl p-6 outline-none focus:border-white/20 transition-all text-white font-medium shadow-inner"
+                      className="w-full bg-white/[0.01] border border-white/5 rounded-2xl p-4 md:p-6 outline-none focus:border-white/20 transition-all text-white font-medium shadow-inner"
                       placeholder="Name"
                     />
                   </div>
                   <div>
-                    <label className="block text-[10px] font-black text-zinc-600 uppercase mb-4 tracking-[0.3em]">Email Address</label>
+                    <label className="block text-[10px] font-black text-zinc-600 uppercase mb-3 md:mb-4 tracking-[0.3em]">Email Address</label>
                     <input
                       name="email"
                       type="email"
                       required
-                      className="w-full bg-white/[0.01] border border-white/5 rounded-2xl p-6 outline-none focus:border-white/20 transition-all text-white font-medium shadow-inner"
+                      className="w-full bg-white/[0.01] border border-white/5 rounded-2xl p-4 md:p-6 outline-none focus:border-white/20 transition-all text-white font-medium shadow-inner"
                       placeholder="Email"
                     />
                   </div>
                 </div>
                 <div>
-                  <label className="block text-[10px] font-black text-zinc-600 uppercase mb-4 tracking-[0.3em]">Mission Details</label>
+                  <label className="block text-[10px] font-black text-zinc-600 uppercase mb-3 md:mb-4 tracking-[0.3em]">Mission Details</label>
                   <textarea
                     name="message"
                     required
                     rows={4}
-                    className="w-full bg-white/[0.01] border border-white/5 rounded-2xl p-6 outline-none focus:border-white/20 transition-all text-white font-medium shadow-inner resize-none"
+                    className="w-full bg-white/[0.01] border border-white/5 rounded-2xl p-4 md:p-6 outline-none focus:border-white/20 transition-all text-white font-medium shadow-inner resize-none"
                     placeholder="Message..."
                   />
                 </div>
 
                 <button
                   disabled={isSubmitting}
-                  className="clay-btn w-full py-6 bg-white !text-black flex items-center justify-center gap-4 hover:scale-[1.02]"
+                  className="clay-btn w-full py-5 md:py-6 bg-white !text-black flex items-center justify-center gap-4 hover:scale-[1.02]"
                 >
                   {isSubmitting ? (
-                    <Loader2 className="w-6 h-6 animate-spin" />
+                    <Loader2 className="w-5 h-5 md:w-6 md:h-6 animate-spin" />
                   ) : (
                     <>
                       Transmit Package
@@ -127,7 +127,7 @@ export default function ContactSection() {
                   <motion.div
                     initial={{ opacity: 0, scale: 0.95 }}
                     animate={{ opacity: 1, scale: 1 }}
-                    className={`p-6 rounded-2xl border shadow-inner ${
+                    className={`p-4 md:p-6 rounded-2xl border shadow-inner ${
                       status.type === 'success' ? 'border-neon-lime/20 bg-neon-lime/5 text-neon-lime' : 'border-red-500/20 bg-red-500/5 text-red-500'
                     }`}
                   >

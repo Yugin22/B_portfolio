@@ -14,7 +14,7 @@ export default function Hero() {
   const opacity = useTransform(scrollY, [0, 300], [1, 0]);
 
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center pt-20 pb-20 overflow-hidden bg-[#010101]">
+    <section className="relative min-h-screen flex flex-col items-center justify-center pt-24 md:pt-32 pb-16 md:pb-20 overflow-hidden bg-[#010101]">
       <div className="grid-bg-3d" />
       <ClayScene />
 
@@ -39,9 +39,9 @@ export default function Hero() {
           initial={{ opacity: 0, scale: 0.5 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ type: "spring", damping: 12 }}
-          className="flex items-center gap-3 px-8 py-3 rounded-full border border-white/[0.05] bg-white/[0.01] backdrop-blur-xl text-zinc-500 text-[10px] font-black tracking-[0.5em] mb-20 uppercase shadow-2xl"
+          className="flex items-center gap-3 px-6 md:px-8 py-2 md:py-3 rounded-full border border-white/[0.05] bg-white/[0.01] backdrop-blur-xl text-zinc-500 text-[8px] md:text-[10px] font-black tracking-[0.3em] md:tracking-[0.5em] mb-12 md:mb-20 uppercase shadow-2xl"
         >
-          <Sparkles className="w-4 h-4 text-neon-cyan animate-pulse" />
+          <Sparkles className="w-3 h-3 md:w-4 md:h-4 text-neon-cyan animate-pulse" />
           Neural Design Active
         </motion.div>
 
@@ -49,7 +49,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 100 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: [0.23, 1, 0.32, 1] }}
-          className="text-7xl md:text-[10rem] font-black tracking-[-0.04em] mb-12 uppercase leading-[0.8] relative"
+          className="text-5xl sm:text-7xl md:text-8xl lg:text-[10rem] font-black tracking-[-0.04em] mb-8 md:mb-12 uppercase leading-[0.8] relative"
         >
           <span className="text-white block drop-shadow-2xl">
             <TextScramble text="EUGENE L." />
@@ -63,9 +63,9 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.5, duration: 1 }}
-          className="max-w-3xl mx-auto text-lg md:text-3xl text-zinc-500 font-medium tracking-tight mb-24 leading-tight"
+          className="max-w-3xl mx-auto text-base sm:text-lg md:text-2xl lg:text-3xl text-zinc-500 font-medium tracking-tight mb-16 md:mb-24 leading-tight px-4"
         >
-          Architecting <span className="text-white">Future-Proof</span> Ecosystems. <br />
+          Architecting <span className="text-white">Future-Proof</span> Ecosystems. <br className="hidden sm:block" />
           Experience the <span className="text-neon-cyan">Tactile</span> Dimension of the Web.
         </motion.p>
 
@@ -73,17 +73,17 @@ export default function Hero() {
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.8 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-12"
+          className="flex flex-col sm:flex-row items-center justify-center gap-6 md:gap-12 w-full sm:w-auto"
         >
           <Magnetic>
-            <a href="#projects" className="clay-btn bg-white !text-black flex items-center gap-4">
+            <a href="#projects" className="clay-btn bg-white !text-black flex items-center gap-4 w-full sm:w-auto justify-center">
               ENTER ARCHIVE
               <ArrowRight className="w-5 h-5" />
             </a>
           </Magnetic>
           
           <Magnetic>
-            <a href="/resume.pdf" download className="clay-btn text-white flex items-center gap-4">
+            <a href="/resume.pdf" download className="clay-btn text-white flex items-center gap-4 w-full sm:w-auto justify-center">
               <Download className="w-5 h-5 text-neon-purple" />
               RESUME_SYS
             </a>

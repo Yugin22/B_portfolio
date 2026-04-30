@@ -73,7 +73,7 @@ export default function ProjectCard({ project }: ProjectProps) {
         rotateY,
         transformStyle: "preserve-3d",
       }}
-      className="clay-card group relative p-2 pb-16 overflow-hidden perspective-1000"
+      className="clay-card group relative p-2 pb-10 md:pb-16 overflow-hidden perspective-1000"
     >
       {/* Dynamic Glow that follows mouse */}
       <motion.div
@@ -87,7 +87,7 @@ export default function ProjectCard({ project }: ProjectProps) {
       />
 
       <div style={{ transform: "translateZ(80px)" }} className="relative z-10 transition-transform duration-500">
-        <div className="relative h-80 w-full overflow-hidden rounded-[3.5rem] mb-12 shadow-2xl">
+        <div className="relative h-60 md:h-80 w-full overflow-hidden rounded-[2.5rem] md:rounded-[3.5rem] mb-8 md:mb-12 shadow-2xl">
           <Image
             src={project.image_url || '/placeholder.jpg'}
             alt={project.title}
@@ -97,35 +97,35 @@ export default function ProjectCard({ project }: ProjectProps) {
           <div className="absolute inset-0 bg-gradient-to-t from-[#010101]/90 via-transparent to-transparent" />
         </div>
 
-        <div className="px-12">
-          <div className="flex flex-wrap gap-4 mb-10">
+        <div className="px-6 md:px-12">
+          <div className="flex flex-wrap gap-2 md:gap-4 mb-6 md:mb-10">
             {project.tags?.map((tag) => (
-              <span key={tag} className="text-[11px] font-black text-zinc-500 uppercase tracking-[0.3em] border border-white/[0.05] bg-white/[0.02] px-5 py-2 rounded-2xl shadow-inner">
+              <span key={tag} className="text-[9px] md:text-[11px] font-black text-zinc-500 uppercase tracking-[0.2em] md:tracking-[0.3em] border border-white/[0.05] bg-white/[0.02] px-3 md:px-5 py-1.5 md:py-2 rounded-xl md:rounded-2xl shadow-inner">
                 {tag}
               </span>
             ))}
           </div>
 
-          <div className="flex items-center justify-between mb-8">
-            <h3 className="text-5xl font-black tracking-tighter text-white uppercase leading-none drop-shadow-lg">
+          <div className="flex items-center justify-between mb-6 md:mb-8">
+            <h3 className="text-3xl md:text-5xl font-black tracking-tighter text-white uppercase leading-none drop-shadow-lg">
               {project.title}
             </h3>
-            <div className="w-14 h-14 rounded-[1.5rem] clay-btn !p-0 flex items-center justify-center group-hover:text-neon-cyan transition-all">
-              <ArrowUpRight className="w-7 h-7" />
+            <div className="w-10 h-10 md:w-14 md:h-14 rounded-[1rem] md:rounded-[1.5rem] clay-btn !p-0 flex items-center justify-center group-hover:text-neon-cyan transition-all">
+              <ArrowUpRight className="w-5 h-5 md:w-7 md:h-7" />
             </div>
           </div>
 
-          <p className="text-zinc-500 text-xl mb-14 leading-relaxed line-clamp-2 font-medium tracking-tight">
+          <p className="text-zinc-500 text-base md:text-xl mb-10 md:mb-14 leading-relaxed line-clamp-2 font-medium tracking-tight">
             {project.description}
           </p>
 
-          <div className="flex items-center gap-12 pt-12 border-t border-white/[0.05]">
-            <a href={project.repo_url} target="_blank" className="flex items-center gap-4 text-sm font-black text-zinc-500 hover:text-white transition-all uppercase tracking-[0.3em] hover:scale-110">
-              <Github className="w-6 h-6" />
+          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6 sm:gap-12 pt-8 md:pt-12 border-t border-white/[0.05]">
+            <a href={project.repo_url} target="_blank" className="flex items-center gap-4 text-[10px] md:text-sm font-black text-zinc-500 hover:text-white transition-all uppercase tracking-[0.2em] md:tracking-[0.3em] hover:scale-110">
+              <Github className="w-5 h-5 md:w-6 md:h-6" />
               Source_Archive
             </a>
-            <a href={project.live_url} target="_blank" className="flex items-center gap-4 text-sm font-black text-zinc-500 hover:text-white transition-all uppercase tracking-[0.3em] hover:scale-110">
-              <ExternalLink className="w-6 h-6" />
+            <a href={project.live_url} target="_blank" className="flex items-center gap-4 text-[10px] md:text-sm font-black text-zinc-500 hover:text-white transition-all uppercase tracking-[0.2em] md:tracking-[0.3em] hover:scale-110">
+              <ExternalLink className="w-5 h-5 md:w-6 md:h-6" />
               Live_Node
             </a>
           </div>

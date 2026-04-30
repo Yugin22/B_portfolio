@@ -19,31 +19,31 @@ export default function TechMarquee() {
   const x3 = useTransform(scrollYProgress, [0, 1], [-200, -800]);
 
   return (
-    <section ref={containerRef} className="py-40 bg-[#010101] overflow-hidden">
-      <div className="flex flex-col gap-12 md:gap-20">
+    <section ref={containerRef} className="py-20 md:py-40 bg-[#010101] overflow-hidden">
+      <div className="flex flex-col gap-8 md:gap-20">
         
         {/* Row 1 */}
-        <motion.div style={{ x: x1 }} className="flex gap-12 whitespace-nowrap">
+        <motion.div style={{ x: x1 }} className="flex gap-8 md:gap-12 whitespace-nowrap">
           {[...TECH_STACK_1, ...TECH_STACK_1].map((tech, i) => (
-            <span key={i} className="text-7xl md:text-[12rem] font-black text-zinc-900 uppercase tracking-tighter hover:text-white transition-colors duration-500">
+            <span key={i} className="text-5xl sm:text-7xl md:text-[12rem] font-black text-zinc-900 uppercase tracking-tighter hover:text-white transition-colors duration-500">
               {tech}
             </span>
           ))}
         </motion.div>
 
         {/* Row 2 */}
-        <motion.div style={{ x: x2 }} className="flex gap-12 whitespace-nowrap">
+        <motion.div style={{ x: x2 }} className="flex gap-8 md:gap-12 whitespace-nowrap">
           {[...TECH_STACK_2, ...TECH_STACK_2].map((tech, i) => (
-            <span key={i} className="text-7xl md:text-[12rem] font-black text-white uppercase tracking-tighter opacity-10 hover:opacity-100 transition-opacity duration-500">
+            <span key={i} className="text-5xl sm:text-7xl md:text-[12rem] font-black text-white uppercase tracking-tighter opacity-10 hover:opacity-100 transition-opacity duration-500">
               {tech}
             </span>
           ))}
         </motion.div>
 
         {/* Row 3 */}
-        <motion.div style={{ x: x3 }} className="flex gap-12 whitespace-nowrap">
+        <motion.div style={{ x: x3 }} className="flex gap-8 md:gap-12 whitespace-nowrap">
           {[...TECH_STACK_3, ...TECH_STACK_3].map((tech, i) => (
-            <span key={i} className="text-7xl md:text-[12rem] font-black text-zinc-900 uppercase tracking-tighter hover:text-neon-cyan transition-colors duration-500">
+            <span key={i} className="text-5xl sm:text-7xl md:text-[12rem] font-black text-zinc-900 uppercase tracking-tighter hover:text-neon-cyan transition-colors duration-500">
               {tech}
             </span>
           ))}

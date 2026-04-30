@@ -49,28 +49,28 @@ export default async function Home() {
     <main className="min-h-screen bg-[#010101]">
       <Hero />
 
-      <section id="projects" className="py-60 relative">
+      <section id="projects" className="py-24 md:py-60 relative">
         <div className="container mx-auto px-6">
           <Reveal>
-            <div className="grid lg:grid-cols-12 gap-12 mb-32 items-end">
+            <div className="grid lg:grid-cols-12 gap-12 mb-20 md:mb-32 items-end">
               <div className="lg:col-span-8">
                 <div className="flex items-center gap-4 text-neon-cyan font-mono text-[11px] tracking-[0.4em] uppercase mb-8">
                   Selected_Works
                 </div>
-                <h2 className="text-8xl md:text-[12rem] font-black tracking-tighter uppercase leading-[0.8] mb-0">
+                <h2 className="text-6xl md:text-8xl lg:text-[12rem] font-black tracking-tighter uppercase leading-[0.8] mb-0">
                   <span className="text-white block">PROJECT</span>
                   <span className="text-zinc-900 block">ARCHIVE</span>
                 </h2>
               </div>
               <div className="lg:col-span-4 pb-6">
-                <p className="max-w-sm text-zinc-500 text-xl md:text-2xl font-medium leading-tight text-left lg:text-right ml-auto">
+                <p className="max-w-sm text-zinc-500 text-lg md:text-xl lg:text-2xl font-medium leading-tight text-left lg:text-right ml-auto">
                   A collection of high-fidelity SaaS projects built for scalability and performance.
                 </p>
               </div>
             </div>
           </Reveal>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12">
             {displayProjects.map((project) => (
               <Reveal key={project.id}>
                 <ProjectCard project={project} />
@@ -90,8 +90,8 @@ export default async function Home() {
         <ContactSection />
       </Reveal>
 
-      <footer className="py-20 border-t border-white/[0.05] text-center">
-        <p className="text-zinc-800 font-mono text-xs tracking-[0.5em] uppercase">
+      <footer className="py-12 md:py-20 border-t border-white/[0.05] text-center">
+        <p className="text-zinc-800 font-mono text-[10px] md:text-xs tracking-[0.3em] md:tracking-[0.5em] uppercase px-6">
           Eugene L. Bulabog // 2026 // ALL_RIGHTS_RESERVED
         </p>
       </footer>

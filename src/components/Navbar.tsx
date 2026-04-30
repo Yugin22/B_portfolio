@@ -36,9 +36,8 @@ export default function Navbar() {
       }}
       animate={hidden ? "hidden" : "visible"}
       transition={{ duration: 0.35, ease: "easeInOut" }}
-      className={`fixed top-0 left-0 right-0 z-[60] transition-all duration-500 ${
-        isScrolled ? 'py-4 glass border-b border-white/[0.05]' : 'py-8 bg-transparent'
-      }`}
+      className={`fixed top-0 left-0 right-0 z-[60] transition-all duration-500 ${isScrolled ? 'py-4 glass border-b border-white/[0.05]' : 'py-6 md:py-8 bg-transparent'
+        }`}
     >
       <div className="container mx-auto px-6 lg:px-12 flex items-center justify-between">
         <Magnetic>
@@ -64,7 +63,7 @@ export default function Navbar() {
               </Link>
             </Magnetic>
           ))}
-          
+
           <div className="w-px h-4 bg-white/10" />
 
           <Magnetic>
@@ -115,6 +114,6 @@ export default function Navbar() {
           </motion.div>
         )}
       </AnimatePresence>
-    </nav>
+    </motion.nav>
   );
 }
