@@ -1,35 +1,33 @@
-import { createBrowserClient, createServerClient } from '@supabase/ssr';
-import { cookies } from 'next/headers';
+// This file is now a placeholder as the project has been moved to a hardcoded data model.
+// All Supabase connections have been removed.
 
-export const createClient = () =>
-  createBrowserClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
-  );
-
-export const createServerSideClient = async () => {
-  const cookieStore = await cookies();
-
-  return createServerClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
-    {
-      cookies: {
-        getAll() {
-          return cookieStore.getAll();
-        },
-        setAll(cookiesToSet) {
-          try {
-            cookiesToSet.forEach(({ name, value, options }) =>
-              cookieStore.set(name, value, options)
-            );
-          } catch {
-            // The `setAll` method was called from a Server Component.
-            // This can be ignored if you have middleware refreshing
-            // user sessions.
-          }
-        },
-      },
-    }
-  );
-};
+export const createBrowserClient = () => ({});
+export const createServerClient = () => ({});
+export const createServerSideClient = async () => ({
+  auth: {
+    getUser: async () => ({ data: { user: null }, error: null }),
+    signInWithPassword: async () => ({ data: {}, error: null }),
+  },
+  from: () => ({
+    select: () => ({
+      order: () => ({
+        data: [],
+        error: null,
+      }),
+      single: () => ({
+        data: null,
+        error: null,
+      }),
+      data: [],
+      error: null,
+    }),
+    insert: () => ({ error: null }),
+    upsert: () => ({ error: null }),
+    update: () => ({
+      eq: () => ({ error: null }),
+    }),
+    delete: () => ({
+      eq: () => ({ error: null }),
+    }),
+  }),
+});

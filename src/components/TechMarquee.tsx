@@ -3,7 +3,7 @@
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 
-const TECH_STACK_1 = ['NEXT.JS 15', 'TYPESCRIPT', 'TAILWIND 4', 'SUPABASE', 'POSTGRESQL'];
+const TECH_STACK_1 = ['NEXT.JS 15', 'TYPESCRIPT', 'TAILWIND 4', 'JSON DATA', 'POSTGRESQL'];
 const TECH_STACK_2 = ['FRAMER MOTION', 'VERCEL', 'REACT 19', 'NODE.JS', 'PRISMA'];
 const TECH_STACK_3 = ['STRIPE', 'REDIS', 'DOCKER', 'AWS', 'GIT'];
 

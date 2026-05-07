@@ -1,6 +1,5 @@
 import React from 'react';
-import { createServerSideClient } from '@/lib/supabase';
-import { redirect } from 'next/navigation';
+import { PROJECTS, CONTACTS, ANALYTICS } from '@/data/mockData';
 import {
   LayoutDashboard,
   PlusCircle,
@@ -11,23 +10,10 @@ import {
 } from 'lucide-react';
 import Link from 'next/link';
 
-async function getAdminData() {
-  const supabase = await createServerSideClient();
-  const { data: { user } } = await supabase.auth.getUser();
-
-  if (!user) {
-    redirect('/admin/login');
-  }
-
-  const { data: contacts } = await supabase.from('contacts').select('*').order('created_at', { ascending: false });
-  const { data: projects } = await supabase.from('projects').select('*').order('created_at', { ascending: false });
-  const { data: analytics } = await supabase.from('site_analytics').select('*');
-
-  return { contacts, projects, analytics };
-}
-
 export default async function AdminDashboard() {
-  const { contacts, projects, analytics } = await getAdminData();
+  const contacts = CONTACTS;
+  const projects = PROJECTS;
+  const analytics = ANALYTICS;
   const totalViews = analytics?.reduce((acc, curr) => acc + curr.view_count, 0) || 0;
 
   return (

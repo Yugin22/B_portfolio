@@ -14,13 +14,6 @@ export default function ProjectSkeleton() {
         <div className="w-3/4 h-8 bg-white/10 rounded mb-4" />
         <div className="w-full h-4 bg-white/5 rounded mb-2" />
         <div className="w-2/3 h-4 bg-white/5 rounded mb-8" />
-        <div className="pt-6 border-t border-white/5 flex justify-between items-center">
-          <div className="flex gap-4">
-            <div className="w-5 h-5 bg-white/5 rounded-full" />
-            <div className="w-5 h-5 bg-white/5 rounded-full" />
-          </div>
-          <div className="w-24 h-4 bg-white/5 rounded" />
-        </div>
       </div>
     </div>
   );

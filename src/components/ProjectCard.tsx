@@ -119,16 +119,6 @@ export default function ProjectCard({ project }: ProjectProps) {
             {project.description}
           </p>
 
-          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6 sm:gap-12 pt-8 md:pt-12 border-t border-white/[0.05]">
-            <a href={project.repo_url} target="_blank" className="flex items-center gap-4 text-[10px] md:text-sm font-black text-zinc-500 hover:text-white transition-all uppercase tracking-[0.2em] md:tracking-[0.3em] hover:scale-110">
-              <Github className="w-5 h-5 md:w-6 md:h-6" />
-              Source_Archive
-            </a>
-            <a href={project.live_url} target="_blank" className="flex items-center gap-4 text-[10px] md:text-sm font-black text-zinc-500 hover:text-white transition-all uppercase tracking-[0.2em] md:tracking-[0.3em] hover:scale-110">
-              <ExternalLink className="w-5 h-5 md:w-6 md:h-6" />
-              Live_Node
-            </a>
-          </div>
         </div>
       </div>
 

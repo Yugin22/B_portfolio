@@ -35,7 +35,7 @@ export default function BentoAbout() {
                   </p>
                   <p>
                     From <span className="text-white">Next.js 15</span> orchestration to 
-                    <span className="text-neon-cyan"> Supabase</span> real-time layers, 
+                    <span className="text-neon-cyan"> Optimized</span> static layers, 
                     I build products that feel alive under the user's touch.
                   </p>
                 </div>
@@ -69,7 +69,7 @@ export default function BentoAbout() {
               <span className="text-[10px] font-black tracking-[0.2em] uppercase text-zinc-600">Backend Stack</span>
             </div>
             <div className="flex flex-wrap gap-3 md:gap-4">
-              {['Supabase', 'Postgres', 'Node.js', 'Prisma', 'Auth'].map(tech => (
+              {['Postgres', 'Node.js', 'Prisma', 'Auth', 'JSON'].map(tech => (
                 <span key={tech} className="px-3 md:px-4 py-1.5 md:py-2 rounded-xl border border-white/5 bg-white/[0.01] text-[9px] md:text-[10px] font-black text-zinc-500 hover:text-white transition-all shadow-inner">
                   {tech}
                 </span>

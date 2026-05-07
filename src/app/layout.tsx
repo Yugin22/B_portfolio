@@ -18,8 +18,8 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "PORTFOLIO.OS // FULL-STACK ARCHITECT",
-  description: "Futuristic SaaS-level portfolio demonstrating advanced full-stack engineering, real-time analytics, and premium UI/UX.",
+  title: "Bulabog // Full-Stack Developer",
+  description: "Modern Portfolio demonstrating advanced full-stack engineering and premium UI/UX.",
 };
 
 export default function RootLayout({
