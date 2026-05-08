@@ -2,7 +2,8 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Code2, Globe2, Cpu, Zap, Activity, Layers, Terminal as TerminalIcon, ShieldCheck, Database } from 'lucide-react';
+import { Cpu, Layers, Terminal as TerminalIcon, ShieldCheck, Database } from 'lucide-react';
+import Image from 'next/image';
 
 export default function BentoAbout() {
   return (
@@ -18,77 +19,73 @@ export default function BentoAbout() {
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-6 md:auto-rows-[350px]">
-          
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-6">
+
           {/* Main Card */}
-          <div className="md:col-span-8 md:row-span-2 clay-card group relative p-8 md:p-12 min-h-[400px] md:min-h-0">
-            <div className="flex flex-col h-full justify-between relative z-10">
-              <div className="w-12 h-12 md:w-16 md:h-16 rounded-[1.5rem] md:rounded-[2rem] bg-white/[0.03] flex items-center justify-center border border-white/5 shadow-inner mb-8 md:mb-12">
-                <TerminalIcon className="text-white w-6 h-6 md:w-8 md:h-8" />
-              </div>
-              <div>
-                <h3 className="text-3xl md:text-5xl font-black mb-6 md:mb-8 tracking-tighter uppercase">Eugene L. Bulabog</h3>
-                <div className="space-y-6 md:space-y-8 text-zinc-500 text-lg md:text-xl lg:text-2xl leading-relaxed max-w-2xl font-medium">
-                  <p>
-                    I design digital ecosystems that prioritize human interaction 
-                    through tactile, claymorphic aesthetics and rigid full-stack reliability.
-                  </p>
-                  <p>
-                    From <span className="text-white">Next.js 15</span> orchestration to 
-                    <span className="text-neon-cyan"> Optimized</span> static layers, 
-                    I build products that feel alive under the user's touch.
-                  </p>
+          <div className="md:col-span-8 md:row-span-2 clay-card group relative overflow-hidden flex flex-col">
+            <div className="relative w-full h-[250px] md:h-[400px] overflow-hidden group-hover:scale-[1.01] transition-transform duration-700">
+              <Image 
+                src="/yugin.jpg" 
+                alt="Eugene L. Bulabog" 
+                fill 
+                className="object-cover object-[center_20%]" 
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#010101] via-transparent to-transparent opacity-60" />
+              
+              <div className="absolute top-6 left-6 flex gap-4">
+                <div className="w-12 h-12 rounded-2xl bg-black/50 backdrop-blur-md border border-white/10 flex items-center justify-center">
+                  <TerminalIcon className="text-white w-6 h-6" />
                 </div>
               </div>
             </div>
 
-            <div className="absolute bottom-[-10%] right-[-5%] opacity-[0.01] group-hover:opacity-[0.03] transition-opacity pointer-events-none hidden md:block">
-              <Cpu className="w-[500px] h-[500px]" />
-            </div>
-          </div>
-
-          {/* Skills: Frontend */}
-          <div className="md:col-span-4 clay-card group p-8 md:p-10">
-            <div className="flex items-center gap-3 mb-6 md:mb-10">
-              <ShieldCheck className="text-neon-cyan w-5 h-5" />
-              <span className="text-[10px] font-black tracking-[0.2em] uppercase text-zinc-600">Frontend Stack</span>
-            </div>
-            <div className="flex flex-wrap gap-3 md:gap-4">
-              {['Next.js', 'React', 'Tailwind', 'Motion', 'Typescript'].map(tech => (
-                <span key={tech} className="px-3 md:px-4 py-1.5 md:py-2 rounded-xl border border-white/5 bg-white/[0.01] text-[9px] md:text-[10px] font-black text-zinc-500 hover:text-white transition-all shadow-inner">
-                  {tech}
-                </span>
-              ))}
-            </div>
-          </div>
-
-          {/* Skills: Backend */}
-          <div className="md:col-span-4 clay-card group p-8 md:p-10">
-            <div className="flex items-center gap-3 mb-6 md:mb-10">
-              <Database className="text-neon-purple w-5 h-5" />
-              <span className="text-[10px] font-black tracking-[0.2em] uppercase text-zinc-600">Backend Stack</span>
-            </div>
-            <div className="flex flex-wrap gap-3 md:gap-4">
-              {['Postgres', 'Node.js', 'Prisma', 'Auth', 'JSON'].map(tech => (
-                <span key={tech} className="px-3 md:px-4 py-1.5 md:py-2 rounded-xl border border-white/5 bg-white/[0.01] text-[9px] md:text-[10px] font-black text-zinc-500 hover:text-white transition-all shadow-inner">
-                  {tech}
-                </span>
-              ))}
-            </div>
-          </div>
-
-          {/* Availability */}
-          <div className="md:col-span-4 clay-card flex flex-col justify-between p-8 md:p-10 border-neon-lime/5 min-h-[200px] md:min-h-0">
-            <div className="flex justify-between items-start">
-              <Activity className="text-zinc-900 w-8 h-8" />
-              <div className="flex items-center gap-3 px-3 md:px-4 py-1.5 md:py-2 rounded-full bg-neon-lime/10 border border-neon-lime/20 shadow-inner">
-                <div className="w-2 h-2 rounded-full bg-neon-lime animate-pulse" />
-                <span className="text-[9px] md:text-[10px] font-black text-neon-lime uppercase tracking-widest">Available Now</span>
+            <div className="p-8 md:p-12 relative z-10 flex-grow flex flex-col justify-center">
+              <h3 className="text-4xl md:text-6xl font-black mb-4 md:mb-6 tracking-tighter uppercase leading-none text-white">Eugene L. Bulabog</h3>
+              <div className="space-y-4 md:space-y-6 text-zinc-500 text-lg md:text-xl lg:text-2xl leading-snug max-w-3xl font-medium">
+                <p>
+                  I design digital ecosystems that prioritize human interaction
+                  through tactile, claymorphic aesthetics and rigid full-stack reliability.
+                </p>
+                <p>
+                  From <span className="text-white">Next.js 15</span> orchestration to
+                  <span className="text-white"> Optimized</span> static layers,
+                  I build products that feel alive under the user&apos;s touch.
+                </p>
               </div>
             </div>
-            <div>
-              <h4 className="font-black text-lg md:text-xl tracking-tight uppercase leading-none">GLOBAL NETWORK</h4>
-              <p className="text-[9px] md:text-[10px] font-mono text-zinc-600 mt-2 md:mt-3 uppercase tracking-widest">Manila // Remote Node</p>
+
+            <div className="absolute bottom-[-5%] right-[-5%] opacity-[0.01] group-hover:opacity-[0.03] transition-opacity pointer-events-none hidden md:block">
+              <Cpu className="w-[400px] h-[400px]" />
+            </div>
+          </div>
+
+          {/* Skills: Frontend - FIXED HEIGHT & ALIGNMENT */}
+          <div className="md:col-span-4 clay-card group p-8 md:p-10 flex flex-col h-fit">
+            <div className="flex items-center gap-4 mb-6 md:mb-8">
+              <ShieldCheck className="text-neon-cyan w-6 h-6" />
+              <span className="text-xs font-black tracking-[0.3em] uppercase text-neon-cyan">Frontend Stack</span>
+            </div>
+            <div className="flex flex-wrap gap-3 md:gap-4 items-start content-start">
+              {['Next.js', 'React', 'Tailwind', 'Motion', 'Typescript'].map(tech => (
+                <span key={tech} className="px-4 py-2 h-fit inline-flex items-center justify-center rounded-xl border border-white/10 bg-white/[0.05] text-[10px] md:text-[12px] font-black text-white hover:text-neon-cyan transition-all shadow-inner whitespace-nowrap">
+                  {tech}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          {/* Skills: Backend - FIXED HEIGHT & ALIGNMENT */}
+          <div className="md:col-span-4 clay-card group p-8 md:p-10 flex flex-col h-fit">
+            <div className="flex items-center gap-4 mb-6 md:mb-8">
+              <Database className="text-neon-purple w-6 h-6" />
+              <span className="text-xs font-black tracking-[0.3em] uppercase text-neon-purple">Backend Stack</span>
+            </div>
+            <div className="flex flex-wrap gap-3 md:gap-4 items-start content-start">
+              {['Postgres', 'Node.js', 'Prisma', 'Auth', 'JSON'].map(tech => (
+                <span key={tech} className="px-4 py-2 h-fit inline-flex items-center justify-center rounded-xl border border-white/10 bg-white/[0.05] text-[10px] md:text-[12px] font-black text-white hover:text-neon-purple transition-all shadow-inner whitespace-nowrap">
+                  {tech}
+                </span>
+              ))}
             </div>
           </div>
 

@@ -2,7 +2,8 @@
 
 import React from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { Sparkles, ArrowRight, Download } from 'lucide-react';
+import { Code2, ArrowRight, Download } from 'lucide-react';
+
 import ClayScene from './ClayScene';
 import TextScramble from './TextScramble';
 import Magnetic from './Magnetic';
@@ -19,19 +20,19 @@ export default function Hero() {
       <ClayScene />
 
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-        <motion.div 
+        <motion.div
           animate={{ x: [0, 100, 0], y: [0, 50, 0] }}
           transition={{ duration: 20, repeat: Infinity }}
-          className="absolute top-[10%] left-[5%] w-[40%] h-[40%] bg-neon-cyan/10 blur-[100px] rounded-full opacity-30 animate-float" 
+          className="absolute top-[10%] left-[5%] w-[40%] h-[40%] bg-neon-cyan/10 blur-[100px] rounded-full opacity-30 animate-float"
         />
-        <motion.div 
+        <motion.div
           animate={{ x: [0, -100, 0], y: [0, -50, 0] }}
           transition={{ duration: 25, repeat: Infinity }}
-          className="absolute bottom-[10%] right-[5%] w-[40%] h-[40%] bg-neon-purple/10 blur-[100px] rounded-full opacity-30 animate-float" 
+          className="absolute bottom-[10%] right-[5%] w-[40%] h-[40%] bg-neon-purple/10 blur-[100px] rounded-full opacity-30 animate-float"
         />
       </div>
 
-      <motion.div 
+      <motion.div
         style={{ y, rotate, opacity }}
         className="container mx-auto px-6 relative z-10 flex flex-col items-center text-center"
       >
@@ -41,8 +42,8 @@ export default function Hero() {
           transition={{ type: "spring", damping: 12 }}
           className="flex items-center gap-3 px-6 md:px-8 py-2 md:py-3 rounded-full border border-white/[0.05] bg-white/[0.01] backdrop-blur-xl text-zinc-500 text-[8px] md:text-[10px] font-black tracking-[0.3em] md:tracking-[0.5em] mb-12 md:mb-20 uppercase shadow-2xl"
         >
-          <Sparkles className="w-3 h-3 md:w-4 md:h-4 text-neon-cyan animate-pulse" />
-          Neural Design Active
+          <Code2 className="w-3 h-3 md:w-4 md:h-4 text-neon-purple" />
+          Full-Stack Developer
         </motion.div>
 
         <motion.h1
@@ -76,14 +77,14 @@ export default function Hero() {
           className="flex flex-col sm:flex-row items-center justify-center gap-6 md:gap-12 w-full sm:w-auto"
         >
           <Magnetic>
-            <a href="#projects" className="clay-btn bg-white !text-black flex items-center gap-4 w-full sm:w-auto justify-center">
+            <a href="#projects" className="clay-btn bg-white !text-white flex items-center gap-4 w-full sm:w-auto justify-center">
               ENTER ARCHIVE
-              <ArrowRight className="w-5 h-5" />
+              <ArrowRight className="w-5 h-5 text-neon-purple" />
             </a>
           </Magnetic>
-          
+
           <Magnetic>
-            <a href="/resume.pdf" download className="clay-btn text-white flex items-center gap-4 w-full sm:w-auto justify-center">
+            <a href="/BULABOG_CV.pdf" target="_blank" rel="noopener noreferrer" className="clay-btn text-white flex items-center gap-4 w-full sm:w-auto justify-center">
               <Download className="w-5 h-5 text-neon-purple" />
               RESUME_SYS
             </a>

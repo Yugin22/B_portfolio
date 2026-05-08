@@ -3,6 +3,7 @@ import ProjectCard from '@/components/ProjectCard';
 import ContactSection from '@/components/ContactSection';
 import TechMarquee from '@/components/TechMarquee';
 import BentoAbout from '@/components/BentoAbout';
+import IdentitySection from '@/components/IdentitySection';
 import { Reveal } from '@/components/Reveal';
 import { PROJECTS } from '@/data/mockData';
 
@@ -12,6 +13,8 @@ export default async function Home() {
   return (
     <main className="min-h-screen bg-[#010101]">
       <Hero />
+      <IdentitySection />
+
 
       <section id="projects" className="py-24 md:py-60 relative">
         <div className="container mx-auto px-6">

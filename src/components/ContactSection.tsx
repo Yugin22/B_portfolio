@@ -19,6 +19,12 @@ const Linkedin = ({ className }: { className?: string }) => (
   </svg>
 );
 
+const Facebook = ({ className }: { className?: string }) => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+  </svg>
+);
+
 export default function ContactSection() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [status, setStatus] = useState<{ type: 'success' | 'error', message: string } | null>(null);
@@ -59,16 +65,19 @@ export default function ContactSection() {
               </p>
 
               <div className="space-y-8">
-                <a href="mailto:hello@bulabog.dev" className="inline-block text-xl sm:text-2xl md:text-3xl font-black hover:text-neon-cyan transition-colors tracking-tighter break-all">
-                  hello@bulabog.dev
-                </a>
+                <div className="space-y-4">
+                  <h3 className="text-xl sm:text-2xl md:text-4xl font-black tracking-tighter uppercase text-white">Collaboration Stands</h3>
+                  <a href="mailto:bulabogyugin@gmail.com" className="inline-block text-lg sm:text-xl md:text-2xl font-black hover:text-neon-cyan transition-colors tracking-tighter break-all">
+                    bulabogyugin@gmail.com
+                  </a>
+                </div>
 
                 <div className="flex gap-4 md:gap-6">
-                  <a href="https://github.com" target="_blank" className="p-4 md:p-6 clay-card !rounded-[1.5rem] md:!rounded-[2rem] hover:border-white/20">
-                    <Github className="w-5 h-5 md:w-6 md:h-6 text-zinc-500" />
+                  <a href="https://linkedin.com/in/eugene-bulabog-8368bb408" target="_blank" rel="noopener noreferrer" className="p-4 md:p-6 clay-card !rounded-[1.5rem] md:!rounded-[2rem] hover:border-white/20 group">
+                    <Linkedin className="w-5 h-5 md:w-6 md:h-6 text-zinc-500 group-hover:text-neon-cyan transition-colors" />
                   </a>
-                  <a href="https://linkedin.com" target="_blank" className="p-4 md:p-6 clay-card !rounded-[1.5rem] md:!rounded-[2rem] hover:border-white/20">
-                    <Linkedin className="w-5 h-5 md:w-6 md:h-6 text-zinc-500" />
+                  <a href="https://www.facebook.com/yugin.bulabog.2024" target="_blank" rel="noopener noreferrer" className="p-4 md:p-6 clay-card !rounded-[1.5rem] md:!rounded-[2rem] hover:border-white/20 group">
+                    <Facebook className="w-5 h-5 md:w-6 md:h-6 text-zinc-500 group-hover:text-neon-purple transition-colors" />
                   </a>
                 </div>
               </div>
@@ -111,14 +120,14 @@ export default function ContactSection() {
 
                 <button
                   disabled={isSubmitting}
-                  className="clay-btn w-full py-5 md:py-6 bg-white !text-black flex items-center justify-center gap-4 hover:scale-[1.02]"
+                  className="clay-btn w-full py-5 md:py-6 bg-white !text-white flex items-center justify-center gap-4 hover:scale-[1.02]"
                 >
                   {isSubmitting ? (
                     <Loader2 className="w-5 h-5 md:w-6 md:h-6 animate-spin" />
                   ) : (
                     <>
                       Transmit Package
-                      <Send className="w-5 h-5" />
+                      <Send className="w-5 h-5 text-neon-purple" />
                     </>
                   )}
                 </button>

@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useRef, useMemo } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { MeshDistortMaterial, Sphere, Float } from '@react-three/drei';
 import * as THREE from 'three';
@@ -10,9 +10,11 @@ function Scene() {
 
   useFrame((state) => {
     const time = state.clock.getElapsedTime();
-    mesh.current.rotation.x = Math.cos(time / 4) / 4;
-    mesh.current.rotation.y = Math.sin(time / 4) / 4;
-    mesh.current.position.y = Math.sin(time / 2) / 10;
+    if (mesh.current) {
+      mesh.current.rotation.x = Math.cos(time / 4) / 4;
+      mesh.current.rotation.y = Math.sin(time / 4) / 4;
+      mesh.current.position.y = Math.sin(time / 2) / 10;
+    }
   });
 
   return (
@@ -40,9 +42,39 @@ function Scene() {
 }
 
 export default function ClayScene() {
+  const [hasWebGL, setHasWebGL] = useState<boolean | null>(null);
+
+  useEffect(() => {
+    try {
+      const canvas = document.createElement('canvas');
+      const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+      setHasWebGL(!!gl);
+    } catch (e) {
+      setHasWebGL(false);
+    }
+  }, []);
+
+  // Fallback if WebGL is not available
+  if (hasWebGL === false) {
+    return (
+      <div className="absolute inset-0 z-0 opacity-40 flex items-center justify-center pointer-events-none">
+        <div className="w-[500px] h-[500px] rounded-full bg-gradient-to-tr from-neon-purple/20 to-neon-cyan/20 blur-[120px] animate-pulse" />
+      </div>
+    );
+  }
+
+  // Pre-hydration or checking state
+  if (hasWebGL === null) return null;
+
   return (
     <div className="absolute inset-0 z-0 opacity-60">
-      <Canvas camera={{ position: [0, 0, 5], fov: 75 }}>
+      <Canvas 
+        camera={{ position: [0, 0, 5], fov: 75 }}
+        gl={{ antialias: true, alpha: true }}
+        onCreated={({ gl }) => {
+          gl.setClearColor(new THREE.Color('#010101'), 0);
+        }}
+      >
         <Scene />
       </Canvas>
     </div>
